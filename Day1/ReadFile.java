@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.regex.MatchResult;
 import java.util.regex.Matcher;
@@ -14,7 +15,7 @@ public class ReadFile {
 
     public static ArrayList<String> readFile() throws IOException {
         ArrayList<String> words = new ArrayList<>(25);
-        Files.lines(new File("C:\\Users\\d117340\\adventday1\\src\\input.txt").toPath())
+        Files.lines(new File("C:/Users/user/adventday1/Day1/input.txt").toPath())
                 .forEach(words::add);
 
         return words;
@@ -47,7 +48,6 @@ public class ReadFile {
     }
 
     public static int problem_two(ArrayList<String> stringArrayList) {
-        List<String> weirdVals = Arrays.asList("oneight", "threeight", "fiveight", "nineight", "twone", "sevenine", "eightwo", "eighthree");
 
         int total = 0;
         for(int i = 0; i < stringArrayList.size(); i++) {
@@ -57,7 +57,6 @@ public class ReadFile {
 
             }
             List<String> finalString = convertToNumbers(word.get(0), createWordToNumberMap());
-            System.out.println(Arrays.toString(finalString.toArray()));
             // convert list to numeric list
             if (finalString.size() > 1) {
                 total += parseInt((finalString.get(0)) + finalString.get(finalString.size() - 1));
